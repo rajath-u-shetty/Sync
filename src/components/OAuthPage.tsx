@@ -28,8 +28,10 @@ export default function OAuthPage() {
   return (
     <>
       {OAuthProviders.map((provider) => (
-        <Button className='flex justify-center items-center' key={provider.name} 
-          onClick={async() => await OAuthLogin(provider.name)}>
+        <Button className='flex justify-center items-center gap-2' key={provider.name} 
+          onClick={async() => {
+            await OAuthLogin(provider.name)
+          }}>
           {provider.icon}
           Login with {provider.title}
         </Button>
