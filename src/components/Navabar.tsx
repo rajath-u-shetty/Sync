@@ -5,7 +5,7 @@ import { Button, buttonVariants } from "./ui/button"
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { createClient } from "@/app/utils/supabase/server";
 
-export const Navabr = async () => {
+export const Navabar = async () => {
   const supabase = createClient();
 
   const { data } = await supabase.auth.getUser();
