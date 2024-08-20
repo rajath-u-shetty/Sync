@@ -16,6 +16,7 @@ datasource db {
 model User {
   id            String        @id @default(cuid())
   FullName      String
+  unlimited     Boolean       @default(false)
   image         String
   email         String        @unique
   emailVerified DateTime?

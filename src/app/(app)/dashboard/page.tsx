@@ -1,6 +1,7 @@
 import { createClient } from "@/app/utils/supabase/server";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Activity } from "lucide-react";
 
 export default async function Dashboard() {
   const supabase = createClient()
@@ -24,6 +25,30 @@ export default async function Dashboard() {
         <div className="grid  gap-4">
           <div className="grid md:grid-cols-2 gap-4">
             <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Activity className="h-4 w-4 mr-2" />
+                  Monthly Generations
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-3xl font-bold">
+                  {isLoading ? (
+                    <span className="animate-pulse">...</span>
+                  ) : (
+                    user?.uploadCounts.length
+                  )}{" "}
+                  /{" "}
+                  {user?.Unlimited
+                    ? "Unlimited"
+                    : process.env.NEXT_PUBLIC_GENERATION_LIMIT}
+                </p>
+              </CardContent>
+              <CardFooter>
+                <p className="text-sm text-muted-foreground">
+                  Pro plan coming soon...
+                </p>
+              </CardFooter>
             </Card>
           </div>
         </div>
